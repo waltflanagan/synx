@@ -42,24 +42,31 @@ module Xcodeproj
         end
         private :should_move?
 
-        # Fixes things like pch, info.plist references being changed
+        # Updates build settings that rely on file paths (info.plist, entitlements, bridging headers, pch files)
         def change_build_settings_reference
           @setting_keys_changed = []
-          return unless basename =~ /\.(pch|plist)$/
+          return unless basename =~ /\.(pch|plist|entitlements|h)$/
 
           project.targets.each do |t|
             t.each_build_settings do |bs|
-              ["INFOPLIST_FILE", "GCC_PREFIX_HEADER"].each do |setting_key|
+              
+              continue unless bs
+
+              ["INFOPLIST_FILE", "GCC_PREFIX_HEADER", "CODE_SIGN_ENTITLEMENTS", "SWIFT_OBJC_BRIDGING_HEADER"].each do |setting_key|
                 setting_value = bs[setting_key]
-                if setting_value == real_path.relative_path_from(project.root_pathname).to_s
+                if should_be_modified?(setting_value)
                   bs[setting_key] = hierarchy_path[1..-1]
                   @setting_keys_changed << setting_key
                 end
-              end if bs
+              end
             end
           end
 
           @setting_keys_changed.uniq!
+        end
+
+        def should_be_modified?(setting_value)
+          setting_value && (setting_value == real_path.relative_path_from(project.root_pathname).to_s)
         end
 
       end

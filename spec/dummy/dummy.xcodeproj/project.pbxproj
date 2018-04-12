@@ -20,6 +20,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		33524726207FB7600078200F /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33524725207FB7600078200F /* dummy.swift */; };
 		8C2DEB7F191D3F5C003A1F44 /* ManyFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2DEB7E191D3F5C003A1F44 /* ManyFiles.m */; };
 		8C2DEB82191D3F68003A1F44 /* Wow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2DEB81191D3F68003A1F44 /* Wow.m */; };
 		8C2DEB87191D404A003A1F44 /* Woot.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2DEB86191D404A003A1F44 /* Woot.m */; };
@@ -62,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		33524723207FB73F0078200F /* dummy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = dummy.entitlements; path = dummy/dummy.entitlements; sourceTree = SOURCE_ROOT; };
+		33524724207FB75F0078200F /* dummy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dummy-Bridging-Header.h"; sourceTree = "<group>"; };
+		33524725207FB7600078200F /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		637E22771A5235CE00A08D6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8C2DEB7D191D3F5C003A1F44 /* ManyFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManyFiles.h; sourceTree = "<group>"; };
 		8C2DEB7E191D3F5C003A1F44 /* ManyFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManyFiles.m; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				8C848C50190DB9B300E9727B /* dummy.h */,
 				8C848C52190DB9B300E9727B /* dummy.m */,
 				8C848C4E190DB9B300E9727B /* Supporting Files */,
+				33524725207FB7600078200F /* dummy.swift */,
 			);
 			path = dummy;
 			sourceTree = "<group>";
@@ -208,6 +213,8 @@
 		8C848C4E190DB9B300E9727B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33524723207FB73F0078200F /* dummy.entitlements */,
+				33524724207FB75F0078200F /* dummy-Bridging-Header.h */,
 				8CD2ABF119558D7800341C58 /* Localizable.strings */,
 				8C848C4F190DB9B300E9727B /* dummy-Prefix.pch */,
 			);
@@ -303,6 +310,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = marklarr;
+				TargetAttributes = {
+					8C848C47190DB9B300E9727B = {
+						LastSwiftMigration = 0930;
+					};
+				};
 			};
 			buildConfigurationList = 8C848C43190DB9B300E9727B /* Build configuration list for PBXProject "dummy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -347,6 +359,7 @@
 				8C2DEB87191D404A003A1F44 /* Woot.m in Sources */,
 				8C2DEB94191D4167003A1F44 /* Wowwww.m in Sources */,
 				8C2DEB94191D4167003A1F4B /* Wowwww.m in Sources */,
+				33524726207FB7600078200F /* dummy.swift in Sources */,
 				8C848C53190DB9B300E9727B /* dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,30 +475,42 @@
 		8C848C6C190DB9B300E9727B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = dummy/dummy.entitlements;
 				DSTROOT = /tmp/dummy.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dummy/dummy-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "dummy/dummy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		8C848C6D190DB9B300E9727B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = dummy/dummy.entitlements;
 				DSTROOT = /tmp/dummy.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dummy/dummy-Prefix.pch";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "dummy/dummy-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		8C848C6F190DB9B300E9727B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -506,6 +531,7 @@
 		8C848C70190DB9B300E9727B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

@@ -30,9 +30,12 @@ dummy:
     Wow.m:
   Supporting Files:
     Localizable.strings:
+    dummy-Bridging-Header.h:
     dummy-Prefix.pch:
+    dummy.entitlements: 
   dummy.h:
   dummy.m:
+  dummy.swift:
 dummyTests:
   Other Files:
     InfoPlist.strings:

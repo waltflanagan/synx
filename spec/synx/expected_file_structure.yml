@@ -28,12 +28,15 @@ dummy:
     ManyFiles.m:
   Supporting Files:
     dummy-Prefix.pch:
+    dummy.entitlements: 
+    dummy-Bridging-Header.h:
     en.lproj:
       Localizable.strings:
     de.lproj:
       Localizable.strings:
   dummy.h:
   dummy.m:
+  dummy.swift:
   FileNotInXcodeProj.h:
   SuchGroup:
     Wow.h:
